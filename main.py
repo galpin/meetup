@@ -38,7 +38,6 @@ def directions(name: str, origin: str, destination: str):
 
 
 def app():
-    st.title("🐬➡️💂🏼‍♂️ ⬅️🏎️")
     with st.form(key="search"):
         destination = st.text_input("Enter a place to meet:")
         go_button = st.form_submit_button("Go")
