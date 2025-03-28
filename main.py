@@ -1,7 +1,8 @@
-import streamlit as st
 import os
 from dataclasses import dataclass
 from urllib.parse import urlencode
+
+import streamlit as st
 from dotenv import load_dotenv
 
 
