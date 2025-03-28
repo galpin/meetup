@@ -7,15 +7,15 @@ from dotenv import load_dotenv
 
 
 @dataclass(frozen=True)
-class StartPoints:
+class StartPoint:
     name: str
     address: str
 
 
 gmaps_api_key = os.getenv("GMAPS_API_KEY")
 start_points = [
-    StartPoints(name="🐬", address="Leytone Underground Station"),
-    StartPoints(name="🏎️", address="St Pancras International, London, UK"),
+    StartPoint(name="🐬", address="Leytone Underground Station"),
+    StartPoint(name="🏎️", address="St Pancras International, London, UK"),
 ]
 
 
@@ -44,8 +44,8 @@ def app():
         go_button = st.form_submit_button("Go")
     if not destination or not go_button:
         return
-    for origin in start_points:
-        directions(origin.name, origin.address, destination)
+    for start in start_points:
+        directions(start.name, start.address, destination)
 
 
 if __name__ == "__main__":
