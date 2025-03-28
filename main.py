@@ -15,15 +15,16 @@ class StartPoint:
 gmaps_api_key = os.getenv("GMAPS_API_KEY")
 start_points = [
     StartPoint(name="🐬", address="Leytone Underground Station"),
-    StartPoint(name="🏎️", address="St Pancras International, London, UK"),
+    StartPoint(name="🏎️", address="St Pancras International"),
 ]
+location_suffix = "London, UK"
 
 
 def google_map(origin: str, destination: str):
     params = {
         "key": gmaps_api_key,
-        "origin": origin,
-        "destination": destination,
+        "origin": f"{origin} {location_suffix}",
+        "destination": f"{destination} {location_suffix}",
         "mode": "transit",
     }
     url = f"https://www.google.com/maps/embed/v1/directions?{urlencode(params)}"
